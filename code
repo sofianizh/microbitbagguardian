@@ -1,0 +1,26 @@
+from microbit import *
+
+Lightvalue = pin0.read_analog()
+while True:
+    if button_a.was_pressed(): 
+        if Lightvalue > 400:
+            display.scroll("ALARM")
+            sleep(1000)
+            pin2.write_digital(1)
+            sleep(1000)
+        else:
+            display.scroll("SAFE")
+            sleep(1000)
+            pin2.write_digital(0)
+            sleep(1000)
+    if button_b.was_pressed():
+        if Lightvalue > 400:
+            display.scroll("ALARM")
+            sleep(1000)
+            pin1.write_digital(1)
+            sleep(1000)
+        else:
+            display.scroll("SAFE")
+            sleep(1000)
+            pin1.write_digital(0)
+            sleep(1000)
